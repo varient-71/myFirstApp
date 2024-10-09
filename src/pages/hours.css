@@ -1,48 +1,46 @@
+.color-1 {
+    background-color: #ff0000; /* RED*/
+  }
 .color-2 {
-    background-color: #e32223; /* Pinkish Magenta */
+    background-color: #ff4800; /* RED ORANGE */
   }
   
   .color-3 {
-    background-color: #e8611f; /* Deep Red */
+    background-color: #ffa600; /* ORANGE */
   }
   
   .color-4 {
-    background-color: #f18d1a; /* Orange */
+    background-color: #FFAE42; /*YELLOW Orange */
   }
   
   .color-5 {
-    background-color: #fbc30a; /* Yellow Orange */
+    background-color: #fffF00; /* Yellow */
   }
   
   .color-6 {
-    background-color: #8bb923; /* Bright Yellow */
+    background-color: #9ACD32; /* YELLOW GREEN */
   }
-  
-  .color-1 {
-    background-color: #950b0b; /* Light Yellow-Green */
-  }
-  
   .color-7 {
-    background-color: #008e58; /* Green */
+    background-color: #008000; /* GREEN */
   }
   
   .color-8 {
-    background-color: #0493ba; /* Teal Green */
+    background-color: #0D98BA; /* BLUE GREEN */
   }
   
   .color-9 {
-    background-color:#2970ae; /* Light Blue */
+    background-color:#001eff; /* BLUE */
   }
   
   .color-10 {
-    background-color: #454e99; /* Deep Blue */
+    background-color: #8a2be2; /* BLUE VIOLET */
   }
   
   .color-11 {
-    background-color: #6d398c; /* Purple */
+    background-color: #7F00FF; /* VIOLET */
   }
   
   .color-12 {
-    background-color: #c6047e; /* Deep Purple */
+    background-color: #c71585; /* RED VIOLET */
   }
   
