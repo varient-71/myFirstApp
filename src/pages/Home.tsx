@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow className="ion-justify-content-center ion-margin-vertical">
             <IonCol size="6" size-md="6">
-              <IonButton shape="round"  routerLink="/level1">
+              <IonButton shape="round" color="primary" routerLink="/level1">
                 Level 1
               </IonButton>
             </IonCol>

@@ -1,3 +1,21 @@
+@import url('/public/fonts/super-shiny.css');
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fontspace.io/super-shiny/download');
+/* {
+  font-family: 'Super Shiny';
+  src: url('https://fontspace.io/super-shiny/download') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+
+*{
+  font-family: 'Super Shiny', sans-serif;
+  font-weight: 400;
+  font-size: large;
+  /* text-shadow: -1px -2px #fff,
+  1px 2px #f75c00;   */
+}
 .button-container {
   display: flex;
   flex-direction: column; /* Stack buttons vertically */
@@ -14,17 +32,24 @@
     position: relative;
     width: 300px;
     height: 300px;
-    margin: 50px auto;
+    margin:0 auto 10px;
     border-radius: 50%;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
 .layout-center{
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: transparent;
+}
+.life{
+  justify-content: space-between;
+  padding: 10px;
+  
 }
 .colorbox-layout{
   flex-wrap: wrap;
@@ -68,7 +93,10 @@
 }
 .text-white{
   color: whitesmoke;
-  font-size: 40px;
+  font-size: 24px;
+}
+.ion-padding{
+  padding-top:0 !important;
 }
 .input-box{
   background-color: whitesmoke;
@@ -136,8 +164,8 @@
   border-radius: 50%;
 }
 .color-blocklarge {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 
@@ -162,4 +190,81 @@
 
 .color-block-2 {
   background-color: #33c1ff; /* Example color for block 2 */
+}
+
+.color-wheel {
+  --num-colors: 12;
+  --color-size: calc(100% / var(--num-colors));
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff0000 0deg 30deg,       /* RED */
+    #ff4800 30deg 60deg,      /* RED ORANGE */
+    #ffa600 60deg 90deg,      /* ORANGE */
+    #FFAE42 90deg 120deg,     /* YELLOW ORANGE */
+    #ffff00 120deg 150deg,    /* YELLOW */
+    #9ACD32 150deg 180deg,    /* YELLOW GREEN */
+    #008000 180deg 210deg,    /* GREEN */
+    #0D98BA 210deg 240deg,    /* BLUE GREEN */
+    #001eff 240deg 270deg,    /* BLUE */
+    #8a2be2 270deg 300deg,    /* BLUE VIOLET */
+    #7F00FF 300deg 330deg,    /* VIOLET */
+    #c71585 330deg 360deg     /* RED VIOLET */
+  );
+  transform:rotate(15deg);
+}
+
+.color-wheel::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: white;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.25rem;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: transform 0.2s;
+  background: linear-gradient(to bottom, #ffa726, #fb8c00); /* Light to main orange gradient */
+  border: 3px solid #ef6c00; /* Darker orange for border */
+  border-radius: 15px;
+  box-shadow: 0 4px 0 #ef6c00; /* Shadow using dark orange */
+  width: 40%;
+  color:white;
+}
+
+.success{
+  background: linear-gradient(to bottom, #5fec61, #04fb00); /* Light to main orange gradient */
+  border: 3px solid #107f18; /* Darker orange for border */
+  box-shadow: 0 4px 0 #028213;
+}
+.danger{
+  background: linear-gradient(to bottom, #d56d5a, #fb6000); /* Light to main orange gradient */
+  border: 3px solid #b72605; /* Darker orange for border */
+  box-shadow: 0 4px 0  #b72605;
+}
+.game-button:hover {
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.game-button:active {
+  transform: scale(0.95); /* Slightly shrinks the button on active click */
+}
+
+.txt-lg{
+  font-size: 32px;
+  color:#fcb054;
+}
+.txt-md{
+  font-size: 24px;
 }

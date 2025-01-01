@@ -1,41 +1,30 @@
 import React, {useState,useEffect} from 'react';
-import { IonContent,IonButton,IonInput } from '@ionic/react';
+import { IonContent,IonButton,IonInput,IonGrid } from '@ionic/react';
 import  './Level1.css';
 import PageLayout from '../components/PageLayout';
 import ColorBox from '../components/ColorBox';
-import Clock from '../components/Clock'
-
-const generateRandomNumber = () => {
-  return Math.floor(Math.random() * 12);
-}
+import { generateRandomNumber } from '../util';
+import { useGameContext } from '../gameContext/gameProvider';
 
 const Level4: React.FC = () => {
+
+  const { score,setGameOver,setStart,start,gameOver,chanceLeft,submitHandler,restore} = useGameContext();
   const [hourBtn,setHourBtn] = useState(false)
   const [minuteBtn,setMinuteBtn] = useState(false)
-  const [gameOver,setGameOver] = useState(false)
-  const [start,setStart] = useState(false);
-  const [score,setScore] = useState(0);
   const [hour, setHour] = useState<number>(0);
   const [minute, setMinute] = useState<number>(0);  
   const [hourInput, setHourInput] = useState<number>(1);
   const [minuteInput, setMinuteInput] = useState<number>(7);
 
-  const submitHandler = () => {
-    if(hour == hourInput && minute == minute){
-      setScore(prev => prev+10);
-    }else{
-      setGameOver(true)
-      setScore(0);
-      setStart(false)
-    }
-  }
-
   useEffect(()=>{
-    setHour(generateRandomNumber()+1)
-    setMinute(generateRandomNumber())
+    setHour(generateRandomNumber())
+        setMinute(() => {
+          const num = generateRandomNumber();
+          return num==12?0:num;
+        })
     setHourBtn(true);
     setMinuteBtn(false)
-  },[score])
+  },[score,chanceLeft])
     const colors: string[] = [
       "color-7",
       "color-8",
@@ -87,13 +76,16 @@ const Level4: React.FC = () => {
           <IonButton  shape="round" color={hourBtn?"primary":"medium"} onClick={()=>{ setMinuteBtn(false); setHourBtn(true) } }>set hour</IonButton>
           <IonButton   shape="round" color={minuteBtn?"primary":"medium"} onClick={()=>{ setHourBtn(false); setMinuteBtn(true) } }>set min</IonButton>
         </div>
-        <IonButton expand="block" color="success" onClick={submitHandler}>
-            Done
-        </IonButton></>
+        <IonGrid>
+          <button className='game-button success' onClick={() => submitHandler(hourInput,minuteInput,hour,minute)}>
+              Done
+          </button>
+        </IonGrid>
+        </>
         }
-        <IonButton expand="block" color={(start && !gameOver)?"danger":"success"} onClick={ ( ) =>{ setStart(prev => !prev); setGameOver(false)}}>
-              {(start && !gameOver)?"Quit":"Start"}
-          </IonButton>
+        <button  className={`game-button ${start && !gameOver?"danger":"success"}`} onClick={ ( ) =>{ setStart(prev => !prev); setGameOver(false); restore()}  }>
+            {start && !gameOver?"Quit":"Start"}
+        </button>
       </IonContent>
     </PageLayout>
   );
