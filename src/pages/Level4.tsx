@@ -25,6 +25,7 @@ const Level4: React.FC = () => {
     setHourBtn(true);
     setMinuteBtn(false)
   },[score,chanceLeft])
+
     const colors: string[] = [
       "color-7",
       "color-8",
@@ -69,7 +70,8 @@ const Level4: React.FC = () => {
           </div>   
       </div>}
         <div className="layout-center colorbox-layout">
-            {colors.map(color => <div key={color} onClick={()=> { hourBtn?setHourInput(parseInt(color.split('-')[1], 10)):setMinuteInput(parseInt(color.split('-')[1], 10)-1)}} className={`color-box ${color}`}></div>)}
+            {colors.map(color => <div key={color} onClick={()=> { hourBtn?setHourInput(parseInt(color.split('-')[1], 10)):setMinuteInput(parseInt(color.split('-')[1], 10))}} className={`color-box ${color}`}></div>)}
+            <div>hour {hourInput} minute { minuteInput}</div>
         </div>
         {(start && !gameOver) && <><ColorBox size="large" hour={hourInput} minute={minuteInput}/>
         <div className='btnSetter'>
