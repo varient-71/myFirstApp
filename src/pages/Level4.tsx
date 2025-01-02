@@ -78,7 +78,7 @@ const Level4: React.FC = () => {
           <IonButton   shape="round" color={minuteBtn?"primary":"medium"} onClick={()=>{ setHourBtn(false); setMinuteBtn(true) } }>set min</IonButton>
         </div>
         <IonGrid>
-          <button className='game-button success' onClick={() => submitHandler(hourInput,minuteInput,hour,minute)}>
+          <button className='game-button success' onClick={() => submitHandler(hourInput,minuteInput*5,hour,minute)}>
               Done
           </button>
         </IonGrid>

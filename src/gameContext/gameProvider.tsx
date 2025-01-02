@@ -62,9 +62,7 @@ export const GameProvider:React.FC<GameProviderProps> = ({ children }) => {
     }
     
     const submitHandler = ( hourInput:number,minuteInput:number,hour:number,minute:number ) => {
-  
-        console.log(` ${hour} == ${hourInput} >> ${ minute } == ${minuteInput/5}`)
-          if(hour == hourInput && minute == minuteInput/5){
+          if(hour == hourInput && minute == (minuteInput/5==12?0:minuteInput/5)){
             new Audio(correctSound).play()
             setTimeout(()=>{
               setScore((prev: number) => { 

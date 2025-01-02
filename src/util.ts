@@ -3,7 +3,6 @@ import correctSound from './assets/sounds/correct.mp3'
 import { useGameContext } from './gameContext/gameProvider';
 
 export const generateRandomNumber = () => {
-  console.log('random number generated',Math.ceil(Math.random() * 12))
   return Math.ceil(Math.random() * 12);
 }
 
