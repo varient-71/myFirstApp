@@ -1,6 +1,9 @@
 import { Redirect, Route } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { useEffect } from 'react';
+import { useGameContext } from './gameContext/gameProvider';
 import Home from './pages/Home';
 import Level1 from './pages/Level1';
 import Level2 from './pages/Level2';
@@ -40,9 +43,26 @@ import './theme/variables.css';
 
 setupIonicReact();
 
+const RouteMonitor = () => {
+  const location = useLocation();
+  const { restore } = useGameContext();
+  
+  useEffect(() => {  
+    // Check if user navigated back to home
+    if (location.pathname === '/home') {
+      // Reset the game
+      restore();
+    }
+  }, [location]); // Re-run effect when location changes
+  
+  // This component doesn't render anything
+  return null;
+};
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+    <RouteMonitor />
     <Route path="/home" component={Home} exact />
     <Route path="/level1" component={Level1} exact />
     <Route path="/level2" component={Level2} exact />
