@@ -17,10 +17,7 @@ const Level3: React.FC = () => {
 
 useEffect(()=>{
   setHour(generateRandomNumber())
-      setMinute(() => {
-        const num = generateRandomNumber();
-        return num==12?0:num;
-  })
+  setMinute(generateRandomNumber())
 },[score,chanceLeft])
 
   return (
@@ -32,7 +29,7 @@ useEffect(()=>{
       {(start && !gameOver) && <><ColorBox size="large" hour={hour} minute={minute}/>
       <InputContainer hourInputHandler={(val:number) => setHourInput(prev => prev+val)} minuteInputHandler={(val:number)=> setMinuteInput(prev => prev+val)} hourInput={hourInput} minuteInput={minuteInput}/>
       <IonGrid>
-        <button className='game-button success' onClick={() => submitHandler(hourInput,minuteInput,hour,minute)}>
+        <button className='game-button success' onClick={() => submitHandler(hourInput,minuteInput,hour,minute==12?0:minute)}>
             Done
         </button>
       </IonGrid>

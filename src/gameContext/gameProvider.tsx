@@ -72,10 +72,16 @@ export const GameProvider:React.FC<GameProviderProps> = ({ children }) => {
 
           }
           else{
-            new Audio(incorrectSound).play()  
-            chanceLeft > 1 ? updateChance(-1) : (() => { setGameOver(true); setStart(false);updateChance(-1);if(score > highestScore){
-                setHighestScore(score);
-            } })();
+            new Audio(incorrectSound).play()
+            
+            chanceLeft > 1 ? updateChance(-1) : (() => { 
+              setGameOver(true); 
+              setStart(false);
+              updateChance(-1);
+              if(score > highestScore){
+                  setHighestScore(score);
+              } 
+            })();
             // setScore(0);
             // setStart(false);
           }

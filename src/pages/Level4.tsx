@@ -15,7 +15,7 @@ const Level4: React.FC = () => {
   const [minute, setMinute] = useState<number>(0);  
   const [hourInput, setHourInput] = useState<number>(1);
   const [minuteInput, setMinuteInput] = useState<number>(7);
-
+  
   useEffect(()=>{
     setHour(generateRandomNumber())
         setMinute(() => {
@@ -68,7 +68,8 @@ const Level4: React.FC = () => {
               readonly={true}
             /> 
           </div>   
-      </div>}
+      </div>
+      }
         <div className="layout-center colorbox-layout">
             {colors.map(color => <div key={color} onClick={()=> { hourBtn?setHourInput(parseInt(color.split('-')[1], 10)):setMinuteInput(parseInt(color.split('-')[1], 10))}} className={`color-box ${color}`}></div>)}
         </div>
